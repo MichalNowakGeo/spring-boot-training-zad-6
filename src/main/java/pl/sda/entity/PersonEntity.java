@@ -1,5 +1,6 @@
 package pl.sda.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -12,7 +13,7 @@ import java.util.List;
 public class PersonEntity {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
     private Long id;
 
@@ -28,8 +29,10 @@ public class PersonEntity {
     @Column(name = "PESEL")
     private String pesel;
 
+    @JsonIgnore
     @OneToMany(mappedBy="person", fetch = FetchType.EAGER)
     private List<AccountEntity> accounts;
+
 
     @Override
     public String toString() {
@@ -41,4 +44,6 @@ public class PersonEntity {
                 ", pesel='" + pesel +
                 '}';
     }
+
+
 }
