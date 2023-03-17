@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 @Slf4j
 public class HelloWorldController {
 
-    @RequestMapping(path = {"/", "/hello"},method = RequestMethod.GET)
+    @RequestMapping(path = {"/", "/hello" },method = RequestMethod.GET)
 
     public String helloWorld(@RequestParam(required = false, value = "name")String name){
         if(name == null){

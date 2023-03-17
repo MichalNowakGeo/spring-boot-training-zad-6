@@ -13,6 +13,8 @@ public interface PersonRepository extends JpaRepository<PersonEntity, Long> {
 
     Optional<PersonEntity> findByPesel(String pesel);
 
+    Optional<PersonEntity> findByPeselOrId(String pesel, Long id);
+
     @Modifying
     void deleteByPesel(String pesel);
 }
